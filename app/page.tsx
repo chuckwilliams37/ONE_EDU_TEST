@@ -3,7 +3,7 @@
 import { useAuth } from '@/contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import { Loader2, Sparkles, Heart, Star } from 'lucide-react'
+import { Loader2, Sparkles } from 'lucide-react'
 
 export default function Home() {
   const { user, userRole, loading } = useAuth()
@@ -25,24 +25,18 @@ export default function Home() {
 
   if (loading) {
     return ( 
-      <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center space-y-6">
-          <div className="relative">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl">
-              <Sparkles className="w-10 h-10 text-purple-600" />
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+              <Sparkles className="w-8 h-8 text-gray-600" />
             </div>
-            <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center animate-bounce">
-              <Heart className="w-4 h-4 text-white" />
-            </div>
-            <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-pink-400 rounded-full flex items-center justify-center animate-pulse">
-              <Star className="w-3 h-3 text-white" />
-            </div>
+            <h1 className="text-2xl font-semibold text-gray-900">Astra</h1>
           </div>
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-white">ONE EDU</h1>
-            <p className="text-white/80">Loading your learning adventure...</p>
+            <p className="text-gray-600">Loading your learning adventure...</p>
           </div>
-          <Loader2 className="w-8 h-8 text-white animate-spin mx-auto" />
+          <Loader2 className="w-8 h-8 text-gray-600 animate-spin mx-auto" />
         </div>
       </div>
     )

@@ -5,13 +5,11 @@ import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Progress } from '@/components/ui/progress'
 import { 
   MessageCircle, 
   Trophy, 
   Star, 
   Zap, 
-  Users, 
   Lightbulb, 
   Crown,
   Target,
@@ -34,7 +32,10 @@ export default function DashboardPage() {
 
   if (!childProfile) return null
 
-  const xpProgress = (420 / 500) * 100
+  const xpProgress = 50
+  const level = 1
+  const xpToNextLevel = 50
+
   const skills = [
     { name: 'Communication', level: childProfile.skills.communication, icon: MessageCircle },
     { name: 'Problem Solving', level: childProfile.skills.problemSolving, icon: Lightbulb },
@@ -53,7 +54,6 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <div className="bg-white border-b border-gray-200 p-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between">
@@ -94,7 +94,6 @@ export default function DashboardPage() {
       </div>
 
       <div className="max-w-4xl mx-auto p-6 space-y-6">
-        {/* XP Progress */}
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
@@ -105,19 +104,25 @@ export default function DashboardPage() {
           <CardContent>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-2xl font-bold text-gray-900">420 XP</span>
-                <span className="text-gray-600">Level 4</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  50 XP
+                </span>
+                <span className="text-gray-600">Level {level}</span>
               </div>
-              <Progress value={xpProgress} className="h-2" />
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div 
+                  className="bg-blue-600 h-2 rounded-full" 
+                  style={{ width: `${xpProgress}%` }}
+                ></div>
+              </div>
               <div className="flex justify-between text-sm text-gray-600">
                 <span>Current Level</span>
-                <span>80 XP to Level 5</span>
+                <span>{xpToNextLevel} XP to Level {level + 1}</span>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {skills.map((skill, index) => (
             <Card key={index}>
@@ -149,7 +154,6 @@ export default function DashboardPage() {
           ))}
         </div>
 
-        {/* Badges */}
         <Card>
           <CardHeader className="pb-4">
             <CardTitle className="flex items-center gap-2 text-lg">
@@ -187,7 +191,6 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Card>
             <CardContent className="p-6">

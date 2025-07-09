@@ -24,7 +24,6 @@ export default function ParentPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
       <div className="bg-white border-b border-gray-200 p-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between">
