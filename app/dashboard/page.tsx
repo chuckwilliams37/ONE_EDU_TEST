@@ -191,7 +191,7 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-1">
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
@@ -207,23 +207,6 @@ export default function DashboardPage() {
                   variant="outline"
                   size="sm"
                 >
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                  <Target className="w-5 h-5 text-gray-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg text-gray-900">Daily Challenge</h3>
-                  <p className="text-gray-600 text-sm">New challenge available!</p>
-                </div>
-                <Button variant="outline" size="sm">
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
